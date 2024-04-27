@@ -83,14 +83,14 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                "Hana Humaira",
+                "Nadiya",
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium!
                     .copyWith(color: Colors.white),
               ),
               Text(
-                "hana@yahoo.com",
+                "nadiya@gmail.com",
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
