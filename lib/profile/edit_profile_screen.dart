@@ -72,7 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
         title: Text(
           "Edit Profile",
-          style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white, fontSize: 24), // Set title color to white
+          style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white, fontSize: 24), // Set title color to white
         ),
       ),
       body: SingleChildScrollView(

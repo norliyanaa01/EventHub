@@ -1,5 +1,6 @@
 import 'package:eventhub/profile/edit_profile_screen.dart';
 import 'package:eventhub/profile/widget/profile_menu.dart';
+import 'package:eventhub/homepage/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -14,17 +15,20 @@ void main() {
 }
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}): super(key: key);
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Set app bar background color to transparent
+        backgroundColor:
+            Colors.transparent, // Set app bar background color to transparent
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const EditProfileScreen());
+          },
           icon: const Icon(LineAwesomeIcons.angle_left),
           color: Colors.white,
         ),
@@ -32,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
           "Profile",
           style: Theme.of(context)
               .textTheme
-              .headline4!
+              .headlineMedium!
               .copyWith(color: Colors.white, fontSize: 24),
         ),
       ),
@@ -82,14 +86,14 @@ class ProfileScreen extends StatelessWidget {
                 "Hana Humaira",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineMedium!
                     .copyWith(color: Colors.white),
               ),
               Text(
                 "hana@yahoo.com",
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2!
+                    .bodyMedium!
                     .copyWith(color: Colors.white),
               ),
               const SizedBox(height: 20),
