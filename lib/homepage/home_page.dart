@@ -1,19 +1,19 @@
 import 'package:eventhub/profile/profile_screen.dart';
 import 'package:eventhub/login/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key, required this.email}) : super(key: key);
-  final String email;
+  const HomeScreen({Key? key}) : super(key: key);
+  // const HomeScreen({Key? key, required this.email}) : super(key: key);
+  // final String email;
+  //TESTING - LIYANA
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple,
       appBar: AppBar(
-        backgroundColor:
-            Colors.transparent, // Set app bar background color to transparent
+        backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
           IconButton(
@@ -40,6 +40,7 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
+                    const SizedBox(height: 20),
                     const Text(
                       "Welcome to EventHub!",
                       style: TextStyle(
@@ -48,7 +49,6 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                           filled: true,
                           fillColor: Colors.grey[800],
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide.none,
                           ),
                           prefixIcon: const Icon(
@@ -80,8 +80,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Wrap(
-                      spacing: 10, // Add space between buttons
-                      runSpacing: 3, // Add space between rows
+                      spacing: 10,
+                      runSpacing: 3,
                       children: [
                         ElevatedButton(
                           onPressed: () {},
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20), // Add space between sections
+                    const SizedBox(height: 20),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -144,17 +144,16 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
-                      height: 200, // Height of each event card
+                      height: 200,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 5, // Number of events
+                        itemCount: 5,
                         itemBuilder: (context, index) {
-                          return const EventCard(); // Custom widget for event card
+                          return const EventCard();
                         },
                       ),
                     ),
-                    const SizedBox(
-                        height: 10), // Add space between content and footer
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -175,7 +174,8 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ProfileScreen()),
+                                builder: (context) => ProfileScreen(),
+                              ),
                             );
                           },
                         ),
@@ -194,14 +194,13 @@ class HomeScreen extends StatelessWidget {
 }
 
 class EventCard extends StatelessWidget {
-  const EventCard({super.key});
+  const EventCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          const EdgeInsets.only(right: 20), // Add margin between event cards
-      width: 250, // Width of each event card
+      margin: const EdgeInsets.only(right: 20),
+      width: 250,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -209,12 +208,11 @@ class EventCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Placeholder for event picture
           Container(
-            height: 100, // Height of event picture
+            height: 100,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-              color: Colors.grey, // Placeholder color
+              color: Colors.grey,
             ),
           ),
           const Padding(
@@ -257,7 +255,7 @@ class FooterIconButton extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.label,
-    this.onPressed, // Include the onPressed callback in the constructor
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -265,7 +263,7 @@ class FooterIconButton extends StatelessWidget {
     return Column(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(icon, color: Colors.white),
           iconSize: 30,
         ),
@@ -279,10 +277,9 @@ class FooterIconButton extends StatelessWidget {
 }
 
 void _logoutAndNavigateToLogin(BuildContext context) {
-  // After logout, navigate back to the login page
   Navigator.pushAndRemoveUntil(
     context,
     MaterialPageRoute(builder: (context) => Login()),
-    (route) => false, // Clear all previous routes
+    (route) => false,
   );
 }
